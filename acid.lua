@@ -1,6 +1,6 @@
 -- acid
 --
--- TB-303-style programmer
+-- TB-303-style sequencer
 -- for crow + x0x-heart + grid
 --
 
