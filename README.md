@@ -6,6 +6,15 @@ influenced by Julian Schmidt’s [“Analysis of the µPD650C-133 CPU timing”]
 
 designed for use with the open source [x0x-heart + pacemaker](http://openmusiclabs.com/projects/x0x-heart)
 
+## connections
+
+connect crow to x0x-heart:  
+in 1: clock (optional)  
+out 1: cv  
+out 2: gate  
+out 3: accent  
+out 4: slide  
+
 ## sequencing
 
 ![monome grid](acid.svg)
