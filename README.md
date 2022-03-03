@@ -2,7 +2,7 @@
 
 a tb-303-style sequencer for crow + x0x-heart + grid
 
-influenced by [“Analysis of the µPD650C-133 CPU timing”](https://sonic-potions.com/Documentation/Analysis_of_the_D650C-133_CPU_timing.pdf)
+influenced by Julian Schmidt’s [“Analysis of the µPD650C-133 CPU timing”](http://sonic-potions.com/Documentation/Analysis_of_the_D650C-133_CPU_timing.pdf)
 
 designed for use with the open source [x0x-heart + pacemaker](http://openmusiclabs.com/projects/x0x-heart)
 
