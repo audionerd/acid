@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="507px" height="196px" viewBox="0 0 507 196" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="526px" height="215px" viewBox="0 0 526 215" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>acid</title>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="acid" transform="translate(-26.000000, -100.000000)">
-            <g transform="translate(26.000000, 100.000000)">
-                <g id="keys" transform="translate(89.700000, 15.000000)" fill="#DDDDDD">
+        <g id="acid" transform="translate(-16.000000, -90.000000)">
+            <g transform="translate(16.000000, 90.000000)">
+                <rect id="backdrop" fill="#FFFFFF" x="0" y="0" width="526" height="215" rx="10"></rect>
+                <g id="keys" transform="translate(99.700000, 25.000000)" fill="#DDDDDD">
                     <rect id="Rectangle" x="324" y="151.1" width="14.4" height="14.4" rx="2"></rect>
                     <rect id="Rectangle-Copy-3" x="-1.42108547e-14" y="151.1" width="14.4" height="14.4" rx="2"></rect>
                     <rect id="Rectangle-Copy-4" x="43.3" y="151.1" width="14.4" height="14.4" rx="2"></rect>
@@ -113,7 +114,7 @@
                         <rect id="Rectangle-Copy-2" x="65" y="0" width="14.4" height="14.4" rx="2"></rect>
                     </g>
                 </g>
-                <g id="grid" transform="translate(75.000000, 0.000000)" stroke="#A0A0A4" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
+                <g id="grid" transform="translate(85.000000, 10.000000)" stroke="#A0A0A4" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5">
                     <g id="Group" transform="translate(14.400000, 165.600000)">
                         <polyline id="Stroke-1" points="2.66 0.5 2.54006204 0.50333 2.4204938 0.51332 2.30166464 0.5299304 2.18394104 0.5531144 2.0676866 0.5827964 1.95325952 0.6188936 1.84101332 0.6612836 1.73129432 0.709844 1.62444092 0.76442 1.52078288 0.824845999 1.42064024 0.890934799 1.32432152 0.962481199 1.23212408 1.0392692 1.14433268 1.121054 1.06121804 1.2075872 0.983036839 1.298606 0.910029919 1.3938224 0.842422999 1.4929448 0.78042416 1.5956708 0.72422492 1.70168 0.67399916 1.8106448 0.62990096 1.922234 0.59206712 2.0360984 0.56061428 2.1518852 0.53563928 2.2692416 0.51721916 2.387804 0.50541116 2.5072052 0.50025092 2.6270816 0.5 2.66"></polyline>
                         <line x1="12.74" y1="0.5" x2="2.66" y2="0.5" id="Stroke-2"></line>
@@ -1150,28 +1151,28 @@
                     <polyline id="Stroke-1032" points="4.09999999 0.5 3.98002243 0.501998 3.86017807 0.5079956 3.74059975 0.5179856 3.62142103 0.53195 3.50277403 0.5498816 3.38479052 0.5717588 3.26760152 0.5975564 3.15133772 0.627242 3.03612728 0.6607868 2.92209944 0.6981548 2.80937984 0.7392992 2.69809412 0.7841804 2.58836612 0.832744399 2.48031752 0.884937199 2.3740682 0.940701199 2.2697366 0.999978799 2.16743828 1.062698 2.06728736 1.1287904 1.96939436 1.198184 1.87386872 1.2708032 1.78081664 1.3465652 1.69034072 1.4253872 1.60254212 1.5071828 1.5175184 1.5918548 1.43536352 1.6793132 1.35616928 1.7694644 1.28002316 1.862204 1.20701048 1.9574276 1.13721152 2.0550344 1.07070476 2.1549092 1.00756328 2.2569476 0.947857279 2.3610344 0.891653719 2.4670544 0.839014519 2.5748852 0.78999836 2.6844116 0.7446596 2.7955112 0.70304864 2.908058 0.66521156 3.0219332 0.63119084 3.1370036 0.60102356 3.2531432 0.57474428 3.370226 0.55238108 3.4881188 0.53395952 3.60668839 0.51949976 3.72580879 0.50901836 3.84534319 0.50252612 3.96516199 0.50003096 4.08513199 0.5 4.09999999"></polyline>
                 </g>
                 <text id="playhead" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="16.7929688" y="26">playhead</tspan>
+                    <tspan x="26.7929688" y="36">playhead</tspan>
                 </text>
                 <text id="gate/accent" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="0.590332031" y="47">gate/accent</tspan>
+                    <tspan x="10.590332" y="57">gate/accent</tspan>
                 </text>
                 <text id="slide" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="32.9956055" y="68">slide</tspan>
+                    <tspan x="42.9956055" y="78">slide</tspan>
                 </text>
                 <text id="up" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="49.1982422" y="90">up</tspan>
+                    <tspan x="59.1982422" y="100">up</tspan>
                 </text>
                 <text id="down" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="38.3964844" y="112">down</tspan>
+                    <tspan x="48.3964844" y="122">down</tspan>
                 </text>
                 <text id="left/right" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="452" y="134">left/right</tspan>
+                    <tspan x="462" y="144">left/right</tspan>
                 </text>
                 <text id="meta" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="452" y="176">meta</tspan>
+                    <tspan x="462" y="186">meta</tspan>
                 </text>
                 <text id="keyboard" font-family="Monaco" font-size="9" font-weight="normal" fill="#000000">
-                    <tspan x="16.7929688" y="155">keyboard</tspan>
+                    <tspan x="26.7929688" y="165">keyboard</tspan>
                 </text>
             </g>
         </g>
