@@ -1,11 +1,11 @@
 -- acid
 --
--- TB-303-style sequencer
+-- tb-303-style sequencer
 -- for crow + x0x-heart + grid
 --
 
--- Influenced by “Analysis of the µPD650C-133 CPU timing”
--- https://sonic-potions.com/Documentation/Analysis_of_the_D650C-133_CPU_timing.pdf
+-- influenced by “analysis of the µpd650c-133 cpu timing”
+-- https://sonic-potions.com/documentation/analysis_of_the_d650c-133_cpu_timing.pdf
 --
 -- designed for use with the open source x0x-heart + pacemaker
 -- http://openmusiclabs.com/projects/x0x-heart
