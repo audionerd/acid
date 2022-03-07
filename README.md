@@ -8,12 +8,12 @@ designed for use with the open source [x0x-heart + pacemaker](http://openmusicla
 
 ## connections
 
-connect crow to x0x-heart:  
-in 1: clock (optional)  
-out 1: cv  
-out 2: gate  
-out 3: accent  
-out 4: slide  
+crow out 1 → x0x-heart cv  
+crow out 2 → x0x-heart gate  
+crow out 3 → x0x-heart accent  
+crow out 4 → x0x-heart slide  
+
+clock → crow in 1 (optional)  
 
 ## sequencing
 
