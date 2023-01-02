@@ -66,7 +66,6 @@ local function crow_send_slide_off()
   crow.output[4].volts = 0
 end
 
--- TODO add MIDI out support
 local send_cv = crow_send_cv
 local send_gate_on = crow_send_gate_on
 local send_gate_off = crow_send_gate_off

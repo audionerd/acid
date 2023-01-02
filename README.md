@@ -35,4 +35,3 @@ hold `meta` and select a `gate/accent` step to immediately turn it off.
 - range selection
 - crow "satellite" mode (allow continued playback disconnected from norns, re-connect to edit pattern)
 - random pattern generation
-- MIDI out support
