@@ -22,7 +22,7 @@ context = {
 
   -- 16-step pattern pattern playback
   length  = 16,
-  range   = s{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
+  loop   = s{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
 
   -- pattern data
   note    = s{ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
@@ -37,8 +37,8 @@ context = {
   -- editing
   cursor = 1,
 
-  -- range editing
-  range_start = nil,
+  -- loop start
+  loop_start = nil,
 
   -- playback
   running = false
@@ -77,7 +77,7 @@ local send_slide_off = crow_send_slide_off
 
 local function jump_to_step(n)
   context.pulse:select(n)
-  context.range:select(n)
+  context.loop:select(n)
   context.note:select(n)
   context.gate:select(n)
   context.accent:select(n)
@@ -106,7 +106,7 @@ local function on_pulse()
   pulse = context.pulse()
 
   if pulse == 1 then
-    context.currstep = context.range()
+    context.currstep = context.loop()
 
     send_cv(
       (24 + (context.note() + (context.octave() * 12))) / 12
@@ -143,7 +143,7 @@ function gridredraw()
   g:all(0)
 
   -- start/end
-  for i, n in ipairs(context.range.data) do
+  for i, n in ipairs(context.loop.data) do
     g:led(n, 1, 4)
   end
 
@@ -224,6 +224,7 @@ function key(n,z)
 end
 
 function g.key(x, y, z)
+  -- meta key
   if x == 16 and y == 8 then
     if z == 1 then
       context.meta = true
@@ -232,32 +233,32 @@ function g.key(x, y, z)
     end
   end
 
-  -- playhead selection (cursor, loop range)
+  -- playhead selection (cursor, loop start/end)
   if y == 1 then
-    if context.range_start == nil then
+    if context.loop_start == nil then
       if z == 1 then
-        context.range_start = x
+        context.loop_start = x
       end
     else
       if z == 0 then
-        if x ~= context.range_start then
-          -- set loop range
+        if x ~= context.loop_start then
+          -- set loop start/end
           local t = {}
           local i = 1
           local a
           local b
-          if context.range_start < x then a = context.range_start else a = x end
-          if x > context.range_start then b = x else b = context.range_start end
+          if context.loop_start < x then a = context.loop_start else a = x end
+          if x > context.loop_start then b = x else b = context.loop_start end
           for n = a,b do
             t[i] = n
             i = i + 1
           end
-          context.range:settable(t)
-          context.range_start = nil
+          context.loop:settable(t)
+          context.loop_start = nil
         else
           -- jump immediately to playhead position
           context.cursor = x
-          context.range_start = nil
+          context.loop_start = nil
         end
       end
     end
