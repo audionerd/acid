@@ -37,6 +37,9 @@ context = {
   -- editing
   cursor = 1,
 
+  -- range editing
+  range_start = nil,
+
   -- playback
   running = false
 }
@@ -140,8 +143,8 @@ function gridredraw()
   g:all(0)
 
   -- start/end
-  for n in pairs(context.range.data) do
-    g:led(n, 1, 3)
+  for i, n in ipairs(context.range.data) do
+    g:led(n, 1, 4)
   end
 
   -- playing pos
@@ -226,6 +229,37 @@ function g.key(x, y, z)
       context.meta = true
     else
       context.meta = false
+    end
+  end
+
+  -- playhead selection (cursor, loop range)
+  if y == 1 then
+    if context.range_start == nil then
+      if z == 1 then
+        context.range_start = x
+      end
+    else
+      if z == 0 then
+        if x ~= context.range_start then
+          -- set loop range
+          local t = {}
+          local i = 1
+          local a
+          local b
+          if context.range_start < x then a = context.range_start else a = x end
+          if x > context.range_start then b = x else b = context.range_start end
+          for n = a,b do
+            t[i] = n
+            i = i + 1
+          end
+          context.range:settable(t)
+          context.range_start = nil
+        else
+          -- jump immediately to playhead position
+          context.cursor = x
+          context.range_start = nil
+        end
+      end
     end
   end
 
