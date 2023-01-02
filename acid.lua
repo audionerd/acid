@@ -184,17 +184,17 @@ function gridredraw()
   local r = 8
   g:led(1, r, selection == 0 and 5 or 2)
    g:led(2, r-1, selection == 1 and 5 or 2)
-  g:led(3, r, selection == 2 and 5 or 2)
-   g:led(4, r-1, selection == 3 and 5 or 2)
-  g:led(5, r, selection == 4 and 5 or 2)
-  g:led(6, r, selection == 5 and 5 or 2)
-    g:led(7, r-1, selection == 6 and 5 or 2)
-  g:led(8, r, selection == 7 and 5 or 2)
-    g:led(9, r-1, selection == 8 and 5 or 2)
-  g:led(10, r, selection == 9 and 5 or 2)
-   g:led(11, r-1, selection == 10 and 5 or 2)
-  g:led(12, r, selection == 11 and 5 or 2)
-  g:led(13, r, selection == 12 and 5 or 2)
+  g:led(2, r, selection == 2 and 5 or 2)
+   g:led(3, r-1, selection == 3 and 5 or 2)
+  g:led(3, r, selection == 4 and 5 or 2)
+  g:led(4, r, selection == 5 and 5 or 2)
+    g:led(5, r-1, selection == 6 and 5 or 2)
+  g:led(5, r, selection == 7 and 5 or 2)
+    g:led(6, r-1, selection == 8 and 5 or 2)
+  g:led(6, r, selection == 9 and 5 or 2)
+   g:led(7, r-1, selection == 10 and 5 or 2)
+  g:led(7, r, selection == 11 and 5 or 2)
+  g:led(8, r, selection == 12 and 5 or 2)
 
   -- step left/right
   g:led(15, 6, 5)
@@ -304,17 +304,17 @@ function g.key(x, y, z)
   if z == 1 then
     if x == 1 and y == 8 then context.note[context.cursor] = 0 end
     if x == 2 and y == 7 then context.note[context.cursor] = 1 end
-    if x == 3 and y == 8 then context.note[context.cursor] = 2 end
-    if x == 4 and y == 7 then context.note[context.cursor] = 3 end
-    if x == 5 and y == 8 then context.note[context.cursor] = 4 end
-    if x == 6 and y == 8 then context.note[context.cursor] = 5 end
-    if x == 7 and y == 7 then context.note[context.cursor] = 6 end
-    if x == 8 and y == 8 then context.note[context.cursor] = 7 end
-    if x == 9 and y == 7 then context.note[context.cursor] = 8 end
-    if x == 10 and y == 8 then context.note[context.cursor] = 9 end
-    if x == 11 and y == 7 then context.note[context.cursor] = 10 end
-    if x == 12 and y == 8 then context.note[context.cursor] = 11 end
-    if x == 13 and y == 8 then context.note[context.cursor] = 12 end
+    if x == 2 and y == 8 then context.note[context.cursor] = 2 end
+    if x == 3 and y == 7 then context.note[context.cursor] = 3 end
+    if x == 3 and y == 8 then context.note[context.cursor] = 4 end
+    if x == 4 and y == 8 then context.note[context.cursor] = 5 end
+    if x == 5 and y == 7 then context.note[context.cursor] = 6 end
+    if x == 5 and y == 8 then context.note[context.cursor] = 7 end
+    if x == 6 and y == 7 then context.note[context.cursor] = 8 end
+    if x == 6 and y == 8 then context.note[context.cursor] = 9 end
+    if x == 7 and y == 7 then context.note[context.cursor] = 10 end
+    if x == 7 and y == 8 then context.note[context.cursor] = 11 end
+    if x == 8 and y == 8 then context.note[context.cursor] = 12 end
   end
 
   gridredraw()
