@@ -6,24 +6,23 @@
             <g transform="translate(16.000000, 90.000000)">
                 <rect id="backdrop" fill="#FFFFFF" x="0" y="0" width="526" height="215" rx="10"></rect>
                 <g id="keys" transform="translate(99.700000, 25.000000)" fill="#DDDDDD">
-                    <rect id="Rectangle" x="324" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-3" x="-1.42108547e-14" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-4" x="43.3" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-4" x="86.5" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-4" x="108.4" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-4" x="151.4" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-5" x="173.1" y="129.5" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-5" x="173.1" y="129.5" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-6" x="194.5" y="151.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-7" x="216.1" y="129.5" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-8" x="238" y="151.3" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-9" x="259.2" y="151.3" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-4" x="129.9" y="129.3" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy" x="324" y="108.1" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-2" x="302.8" y="108" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-2" x="21.8" y="129.6" width="14.4" height="14.4" rx="2"></rect>
-                    <rect id="Rectangle-Copy-2" x="65.2" y="129.6" width="14.4" height="14.4" rx="2"></rect>
-                    <g id="Group-2" transform="translate(0.300000, 0.000000)">
+                    <rect id="meta" x="324" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="C" x="-1.42108547e-14" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="C#" x="21.8" y="129.6" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="D" x="21.8" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="D#" x="43.2" y="129.6" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="E" x="43.5" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="F" x="64.8" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="F#" x="86.9" y="129.3" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="G" x="86.4" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="G#" x="108.1" y="129.5" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="A" x="108.5" y="151.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="A#" x="130.1" y="129.5" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="B" x="130" y="151.3" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="C" x="151.2" y="151.3" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="right" x="324" y="108.1" width="14.4" height="14.4" rx="2"></rect>
+                    <rect id="left" x="302.8" y="108" width="14.4" height="14.4" rx="2"></rect>
+                    <g id="top-row" transform="translate(0.300000, 0.000000)">
                         <rect id="Rectangle" x="324" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-3" x="0" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-4" x="43" y="0" width="14.4" height="14.4" rx="2"></rect>
@@ -41,7 +40,7 @@
                         <rect id="Rectangle-Copy-2" x="21.7" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-2" x="65" y="0" width="14.4" height="14.4" rx="2"></rect>
                     </g>
-                    <g id="Group-2" transform="translate(0.300000, 21.200000)">
+                    <g id="gate/accent" transform="translate(0.300000, 21.200000)">
                         <rect id="Rectangle" x="324" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-3" x="0" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-4" x="43" y="0" width="14.4" height="14.4" rx="2"></rect>
@@ -59,7 +58,7 @@
                         <rect id="Rectangle-Copy-2" x="21.7" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-2" x="65" y="0" width="14.4" height="14.4" rx="2"></rect>
                     </g>
-                    <g id="Group-2" transform="translate(0.300000, 43.200000)">
+                    <g id="slide" transform="translate(0.300000, 43.200000)">
                         <rect id="Rectangle" x="324" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-3" x="0" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-4" x="43" y="0" width="14.4" height="14.4" rx="2"></rect>
@@ -77,7 +76,7 @@
                         <rect id="Rectangle-Copy-2" x="21.7" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-2" x="65" y="0" width="14.4" height="14.4" rx="2"></rect>
                     </g>
-                    <g id="Group-2" transform="translate(0.300000, 65.000000)">
+                    <g id="up" transform="translate(0.300000, 65.000000)">
                         <rect id="Rectangle" x="324" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-3" x="0" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-4" x="43" y="0" width="14.4" height="14.4" rx="2"></rect>
@@ -95,7 +94,7 @@
                         <rect id="Rectangle-Copy-2" x="21.7" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-2" x="65" y="0" width="14.4" height="14.4" rx="2"></rect>
                     </g>
-                    <g id="Group-2-Copy" transform="translate(0.300000, 86.000000)">
+                    <g id="down" transform="translate(0.300000, 86.000000)">
                         <rect id="Rectangle" x="324" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-3" x="0" y="0" width="14.4" height="14.4" rx="2"></rect>
                         <rect id="Rectangle-Copy-4" x="43" y="0" width="14.4" height="14.4" rx="2"></rect>
