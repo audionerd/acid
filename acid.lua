@@ -372,30 +372,32 @@ function g.key(x, y, z)
   end
 
   -- playhead selection (cursor, loop start/end)
-  if y == 1 then
-    if context.loop_start == nil then
-      if z == 1 then
-        context.loop_start = x
-      end
-    else
-      if z == 0 then
-        if x ~= context.loop_start then
-          -- set loop start/end
-          context.loop_pending = {}
-          local i = 1
-          local a
-          local b
-          if context.loop_start < x then a = context.loop_start else a = x end
-          if x > context.loop_start then b = x else b = context.loop_start end
-          for n = a,b do
-            context.loop_pending[i] = n
-            i = i + 1
+  if context.meta and y == 1 and z == 1 then
+    -- jump immediately to playhead position
+    context.cursor = x
+    context.loop_start = nil
+  else
+    if y == 1 then
+      if context.loop_start == nil then
+        if z == 1 then
+          context.loop_start = x
+        end
+      else
+        if z == 0 then
+          if x ~= context.loop_start then
+            -- set loop start/end
+            context.loop_pending = {}
+            local i = 1
+            local a
+            local b
+            if context.loop_start < x then a = context.loop_start else a = x end
+            if x > context.loop_start then b = x else b = context.loop_start end
+            for n = a,b do
+              context.loop_pending[i] = n
+              i = i + 1
+            end
+            context.loop_start = nil
           end
-          context.loop_start = nil
-        else
-          -- jump immediately to playhead position
-          context.cursor = x
-          context.loop_start = nil
         end
       end
     end
