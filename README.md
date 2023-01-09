@@ -35,6 +35,5 @@ hold `meta` and press a step’s top row to select that step.
 to set a loop of less than 16 steps, hold a key on the top row for the start point, and press another key on the top row for the end point. the loop will run between those steps.
 
 ## future
-- save/load patterns
 - crow "satellite" mode (allow continued playback disconnected from norns, re-connect to edit pattern)
 - random pattern generation
