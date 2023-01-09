@@ -467,7 +467,6 @@ function g.key(x, y, z)
     context.cursor = context.cursor - 1
     if context.cursor < 1 then context.cursor = context.length end
   end
-
   -- right
   if y == 6 and x == 16 and z == 1 then
     context.cursor = context.cursor + 1
