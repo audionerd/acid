@@ -22,14 +22,19 @@ context = {
 
   -- 16-step pattern pattern playback
   length  = 16,
+
+  -- loop range
   loop   = s{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16},
 
   -- pattern data
-  note    = s{ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
-  gate    = s{ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
-  accent  = s{ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
-  slide   = s{ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
-  octave  = s{ 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },        
+  note    = { 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },,
+  gate    = { 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
+  accent  = { 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
+  slide   = { 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
+  octave  = { 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0 },
+
+  -- pattern sequins
+  pattern = s{},
 
   -- current step
   currstep = 1,
@@ -39,6 +44,7 @@ context = {
 
   -- loop start
   loop_start = nil,
+  loop_pending = nil,
 
   -- playback
   running = false
@@ -74,18 +80,9 @@ local send_accent_off = crow_send_accent_off
 local send_slide_on = crow_send_slide_on
 local send_slide_off = crow_send_slide_off
 
-local function jump_to_step(n)
-  context.pulse:select(n)
-  context.loop:select(n)
-  context.note:select(n)
-  context.gate:select(n)
-  context.accent:select(n)
-  context.slide:select(n)
-  context.octave:select(n)
-end
-
 local function send_transport_rewind_and_start()
-  jump_to_step(1)
+  context.loop:select(1)
+  context.pattern:select(1)
   context.running = true
 end
 local function send_transport_pause()
@@ -96,32 +93,62 @@ local function send_transport_continue()
   context.running = true
 end
 
+local function set_pattern_from_data()
+  local t = {}
+  for i = 1,16 do
+    t[i] = {
+      context.note[i],
+      context.octave[i],
+      context.gate[i],
+      context.accent[i],
+      context.slide[i]
+    }
+  end
+  context.pattern:settable(t)
+end
+
+local function update_loop_pending()
+  context.loop:settable(context.loop_pending)
+  context.loop_pending = nil
+
+  context.loop:select(1)
+  context.pattern:select(1)
+end
 
 local function on_pulse()
   if not context.running then
+    if context.loop_pending ~= nil then
+      update_loop_pending()
+    end
     return
   end
 
   pulse = context.pulse()
 
   if pulse == 1 then
+    if context.loop_pending ~= nil then
+      update_loop_pending()
+    end
+
     context.currstep = context.loop()
+    context.pattern:select(context.currstep)
+    local note, octave, gate, accent, slide = table.unpack(context.pattern())
 
     send_cv(
-      (24 + (context.note() + (context.octave() * 12))) / 12
+      (24 + (note + (octave * 12))) / 12
     )
 
-    if context.gate() == 1 then
+    if gate == 1 then
       send_gate_on()
     end
 
-    if context.accent() == 1 then
+    if accent == 1 then
       send_accent_on()
     else
       send_accent_off()
     end
 
-    if context.slide() == 1 then
+    if slide == 1 then
       send_slide_on()
     else
       send_slide_off()
@@ -129,8 +156,8 @@ local function on_pulse()
   end
 
   if pulse == 4 then
-    local nextslide = context.slide[wrap_index(context.slide, context.slide.ix + 1)]
-    local nextgate = context.gate[wrap_index(context.gate, context.gate.ix + 1)]
+    local nextvalues = context.pattern[wrap_index(context.pattern, context.pattern.ix + 1)]
+    local nextnote, nextoctave, nextgate, nextaccent, nextslide = table.unpack(nextvalues)
 
     if nextslide == 0 then
       send_gate_off()
@@ -242,17 +269,16 @@ function g.key(x, y, z)
       if z == 0 then
         if x ~= context.loop_start then
           -- set loop start/end
-          local t = {}
+          context.loop_pending = {}
           local i = 1
           local a
           local b
           if context.loop_start < x then a = context.loop_start else a = x end
           if x > context.loop_start then b = x else b = context.loop_start end
           for n = a,b do
-            t[i] = n
+            context.loop_pending[i] = n
             i = i + 1
           end
-          context.loop:settable(t)
           context.loop_start = nil
         else
           -- jump immediately to playhead position
@@ -351,6 +377,8 @@ function g.key(x, y, z)
     if x == 8 and y == 8 then context.note[context.cursor] = 12 end
   end
 
+  set_pattern_from_data()
+
   gridredraw()
   redraw()
 end
@@ -437,6 +465,8 @@ function redraw()
 end
 
 function init()
+  set_pattern_from_data()
+
   clock.run(
   function()
     while true do
