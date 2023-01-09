@@ -165,7 +165,10 @@ context = {
   loop_pending = nil,
 
   -- playback
-  running = false
+  running = false,
+
+  -- meta
+  meta = false
 }
 
 local function crow_send_cv(volts)
