@@ -26,9 +26,13 @@ for each step:
 - `slide` can be off or on
 - `up`/`down` set the octave of the note
 
-hold `meta` and select a `gate/accent` step to immediately turn it off.
+hold `meta` and press a step’s `gate/accent` to immediately turn it off.
+
+hold `meta` and press a step’s top row to select that step.
 
 `left/right` moves the cursor between steps. the `keyboard` will display the note assigned to the step, which can be changed by pressing a `keyboard` key.
+
+to set a loop of less than 16 steps, hold a key on the top row for the start point, and press another key on the top row for the end point. the loop will run between those steps.
 
 ## future
 - save/load patterns
