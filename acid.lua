@@ -11,10 +11,128 @@
 -- http://openmusiclabs.com/projects/x0x-heart
 
 local s = require 'sequins'
+local fileselect = require 'fileselect'
+local textentry = require 'textentry'
 
 local g = grid.connect()
 
 local function wrap_index(s, ix) return ((ix - 1) % s.length) + 1 end
+
+-- via http://lua-users.org/wiki/CopyTable
+local function deepcopy(orig, copies)
+  copies = copies or {}
+  local orig_type = type(orig)
+  local copy
+  if orig_type == 'table' then
+      if copies[orig] then
+          copy = copies[orig]
+      else
+          copy = {}
+          copies[orig] = copy
+          for orig_key, orig_value in next, orig, nil do
+              copy[deepcopy(orig_key, copies)] = deepcopy(orig_value, copies)
+          end
+          setmetatable(copy, deepcopy(getmetatable(orig), copies))
+      end
+  else -- number, string, boolean, etc
+      copy = orig
+  end
+  return copy
+end
+
+-- save/load
+local function get_pattern_table(src)
+  local t = {}
+  for i = 1,16 do
+    t[i] = {
+      src.note[i],
+      src.octave[i],
+      src.gate[i],
+      src.accent[i],
+      src.slide[i]
+    }
+  end
+  return t
+end
+
+local function serialize_pattern()
+  return {
+    length = context.length,
+
+    loop = deepcopy(context.loop),
+
+    note = context.note,
+    gate = context.gate,
+    accent = context.accent,
+    slide = context.slide,
+    octave = context.octave
+  }
+end
+
+local function deserialize_pattern(src, dst)
+  dst.length = src.length
+
+  dst.loop:settable(src.loop.data)
+
+  dst.note = src.note
+  dst.gate = src.gate
+  dst.accent = src.accent
+  dst.slide = src.slide
+  dst.octave = src.octave
+
+  context.pattern:settable(get_pattern_table(context))
+end
+
+local pattern_folder_path = norns.state.data .. "patterns/"
+
+function pattern_load()
+  fileselect.enter(pattern_folder_path, function(srcpath)
+    if srcpath ~= 'cancel' then
+      local data = tab.load(srcpath)
+      if data ~= nil then
+        deserialize_pattern(data, context)
+
+        context.loop:select(1)
+        context.pattern:select(1)
+      end
+    end
+  end)
+end
+
+local function pattern_save()
+  textentry.enter(function(input)
+    if input then
+      if util.file_exists(pattern_folder_path) == nil then
+        util.make_dir(pattern_folder_path)
+      end
+
+      local dst = pattern_folder_path .. input .. ".acd"
+
+      if util.file_exists(dst) then
+        -- TODO show error message
+      else
+        tab.save(serialize_pattern(), dst)
+      end
+    end
+  end)
+end
+local function pattern_overwrite()
+  fileselect.enter(pattern_folder_path, function(srcpath)
+    if srcpath ~= 'cancel' then
+      tab.save(serialize_pattern(), srcpath)
+    end
+  end)
+end
+local function pattern_remove()
+  fileselect.enter(pattern_folder_path, function(srcpath)
+    if srcpath ~= 'cancel' then
+      local data = tab.load(srcpath)
+      if data ~= nil then
+        os.execute("rm "..srcpath)
+      end
+    end
+  end)
+end
 
 context = {
   -- 6 clock pulses per step
@@ -93,19 +211,7 @@ local function send_transport_continue()
   context.running = true
 end
 
-local function set_pattern_from_data()
-  local t = {}
-  for i = 1,16 do
-    t[i] = {
-      context.note[i],
-      context.octave[i],
-      context.gate[i],
-      context.accent[i],
-      context.slide[i]
-    }
-  end
-  context.pattern:settable(t)
-end
+
 
 local function update_loop_pending()
   context.loop:settable(context.loop_pending)
@@ -377,7 +483,7 @@ function g.key(x, y, z)
     if x == 8 and y == 8 then context.note[context.cursor] = 12 end
   end
 
-  set_pattern_from_data()
+  context.pattern:settable(get_pattern_table(context))
 
   gridredraw()
   redraw()
@@ -465,7 +571,23 @@ function redraw()
 end
 
 function init()
-  set_pattern_from_data()
+  params:add_separator("PATTERNS")
+
+  params:add_trigger("acid_load", "> LOAD" )
+  params:set_action("acid_load", pattern_load)
+
+  params:add_trigger("acid_save", "> SAVE")
+  params:set_action("acid_save", pattern_save)
+
+  params:add_trigger("acid_overwrite", "> OVERWRITE")
+  params:set_action("acid_overwrite", pattern_overwrite)
+
+  params:add_trigger("acid_remove", "< REMOVE")
+  params:set_action("acid_remove", pattern_remove)
+
+
+
+  context.pattern:settable(get_pattern_table(context))
 
   clock.run(
   function()
