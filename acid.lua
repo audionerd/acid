@@ -134,6 +134,7 @@ local function pattern_remove()
   end)
 end
 
+-- context
 context = {
   -- 6 clock pulses per step
   pulse   = s{1,2,3,4,5,6},
@@ -171,6 +172,7 @@ context = {
   meta = false
 }
 
+-- playback
 local function crow_send_cv(volts)
   crow.output[1].volts = volts
 end
@@ -274,6 +276,7 @@ local function on_pulse()
   end
 end
 
+-- ui
 function gridredraw()
   g:all(0)
 
