@@ -83,7 +83,7 @@ local function deserialize_pattern(src, dst)
   context.pattern:settable(get_pattern_table(context))
 end
 
-local pattern_folder_path = norns.state.data .. "patterns/"
+local pattern_folder_path = norns.state.data
 
 function pattern_load()
   fileselect.enter(pattern_folder_path, function(srcpath)
