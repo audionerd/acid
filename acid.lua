@@ -109,7 +109,8 @@ local function pattern_save()
       local dst = pattern_folder_path .. input .. ".acd"
 
       if util.file_exists(dst) then
-        -- TODO show error message
+        print("error: file named "..input..".acd already exists")
+        -- TODO show error message on screen
       else
         tab.save(serialize_pattern(), dst)
       end
