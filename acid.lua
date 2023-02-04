@@ -579,6 +579,11 @@ function redraw()
   screen.update()
 end
 
+function grid.add(new_grid)
+  g = grid.connect(new_grid.port)
+  gridredraw()
+end
+
 function init()
   params:add_separator("PATTERNS")
 
