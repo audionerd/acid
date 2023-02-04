@@ -205,6 +205,7 @@ local send_slide_on = crow_send_slide_on
 local send_slide_off = crow_send_slide_off
 
 local function send_transport_rewind_and_start()
+  context.pulse:select(1)
   context.loop:select(1)
   context.pattern:select(1)
   context.running = true
